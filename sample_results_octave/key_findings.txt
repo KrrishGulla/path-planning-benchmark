@@ -1,0 +1,42 @@
+GLOBAL PATH PLANNING BENCHMARK - KEY FINDINGS
+8 planners x 5 environment classes x 20 trials = 800 planning queries
+
+Planner       Success   Time(ms)   RelLen   Turn/100  Vertices  MeanClr     Nodes
+----------------------------------------------------------------------------------
+Dijkstra       100.0%     400.84    1.047       7.59      12.7     4.99      5505
+A*             100.0%      82.84    1.047       8.73      14.0     5.05      1546
+Weighted A*    100.0%      20.06    1.093       8.52      14.2     4.89       786
+Theta*         100.0%     393.75    1.000       2.82       7.1     5.18      1569
+PRM             87.0%     315.48    1.081       6.23      19.5     5.40       502
+RRT             85.0%      74.46    1.375      19.36      45.1     5.70       477
+RRT*            85.0%    1438.55    1.077       6.71      27.0     5.44      2019
+APF              9.0%      71.58    1.080       7.82      11.3     8.61        32
+(Time and nodes over all queries; path-quality columns over successful queries.)
+
+Reliable planners (>= 90% success): Dijkstra, A*, Weighted A*, Theta*
+Unreliable planners: PRM, RRT, RRT*, APF - their path-quality averages come mostly from easy scenarios (survivorship bias), so TOPSIS uses failure-penalised values.
+
+Best among reliable planners:
+* Fastest (median time): Weighted A* (20.06 ms)
+* Shortest paths: Theta* (0.0% above best on average)
+* Smoothest paths: Theta* (2.82 rad / 100 cells)
+* Largest safety margin: Theta* (5.18 cells mean clearance)
+* Least search effort: Weighted A* (786 nodes)
+* A* expands 72% fewer nodes than Dijkstra for the same optimal grid path
+* Theta* (any-angle) paths are 4.5% shorter than A* and turn 68% less
+
+Best planner per environment (TOPSIS, balanced weights):
+  Random Blocks      best: Theta*       worst: RRT*
+  Cluttered Forest   best: Theta*       worst: RRT*
+  Maze               best: PRM          worst: RRT*
+  Indoor Rooms       best: Weighted A*  worst: RRT*
+  Narrow Passage     best: Weighted A*  worst: RRT*
+
+Best planner per application profile (TOPSIS, all environments):
+  Balanced         (equal weights): 1. Weighted A*  2. PRM  3. A*
+  Real-time        (fast replanning on embedded CPU): 1. Weighted A*  2. RRT  3. A*
+  Safety-critical  (robot near people / fragile goods): 1. Theta*  2. Weighted A*  3. A*
+  Path-quality     (energy-efficient, smooth motion): 1. Theta*  2. Weighted A*  3. A*
+
+* Most difficulty-sensitive: RRT (success drops 28 points from easiest to hardest quartile)
+* Fully robust (100% in every quartile): Dijkstra, A*, Weighted A*, Theta*

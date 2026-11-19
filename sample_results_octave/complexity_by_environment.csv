@@ -1,0 +1,6 @@
+Environment,ObstacleDensity,Narrowness,MeanClearance,Tortuosity,BottleneckClearance,StartGoalDist
+Random Blocks,0.184915,0.317902,6.09272,1.05059,4.66623,87.0285
+Cluttered Forest,0.221135,0.53707,3.46021,1.09661,3.27453,85.4275
+Maze,0.30421,0.627191,2.86151,1.87943,3.41623,87.631
+Indoor Rooms,0.18866,0.469628,3.84228,1.08405,3.41517,87.254
+Narrow Passage,0.118165,0.309702,6.06853,1.47186,2.15,85.6998

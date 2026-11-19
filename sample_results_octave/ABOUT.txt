@@ -1,0 +1,10 @@
+Backup results from a complete run (20 trials x 5 environments x 8 planners = 800 queries),
+generated with GNU Octave to verify the code.
+
+- Success rates, path lengths, smoothness, clearance and node counts are deterministic
+  (fixed seeds) and match what MATLAB produces.
+- Absolute planning TIMES are from Octave, which is slower than MATLAB for loop-heavy
+  code; relative ordering is similar but rerun run_all in MATLAB for final timing numbers.
+- Some multi-line titles render on one line in Octave; MATLAB shows them fully.
+
+Running run_all in MATLAB writes fresh results to ./results/

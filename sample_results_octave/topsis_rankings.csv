@@ -1,0 +1,5 @@
+Profile,Description,Dijkstra_C,A*_C,Weighted A*_C,Theta*_C,PRM_C,RRT_C,RRT*_C,APF_C,Dijkstra_rank,A*_rank,Weighted A*_rank,Theta*_rank,PRM_rank,RRT_rank,RRT*_rank,APF_rank
+Balanced,equal weights,0.495839,0.805003,0.865825,0.772403,0.817392,0.707483,0.437928,0.632699,7,3,1,4,2,5,8,6
+Real-time,fast replanning on embedded CPU,0.63396,0.901947,0.951586,0.745643,0.805,0.913662,0.241361,0.78852,7,3,1,6,4,2,8,5
+Safety-critical,robot near people / fragile goods,0.732624,0.832842,0.840782,0.897054,0.807516,0.608034,0.667907,0.296148,5,3,2,1,4,7,6,8
+Path-quality,energy-efficient, smooth motion,0.735027,0.764499,0.773371,0.922767,0.749034,0.386534,0.655483,0.236464,5,3,2,1,4,7,6,8
